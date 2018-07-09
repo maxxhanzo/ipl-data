@@ -8,7 +8,7 @@ const fifth = require("../fifth.js");
 const ids = require("../idArray.js");
 
 describe("first graph", function(){
-    it("should return no of matches per year", function(done){
+    it("should not return empty object", function(done){
 	    let dataSet = path.resolve("test/matchesTest.csv");
 	    let expectedResult = {};
 	    first.getMatchesPerYear(dataSet).then(function(data){
