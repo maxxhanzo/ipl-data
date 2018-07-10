@@ -7,16 +7,16 @@ const fifth = require("./fifth.js");
 const ids = require("./idArray.js");
 
 
-// function getFirstObj(){
-// 	let dataSet = path.resolve("matches.csv");
-//     first.getMatchesPerYear(dataSet).then(function(data){
-//         try {
-//             return data;
+function getFirstObj(){
+	let dataSet = path.resolve("matches.csv");
+    first.getMatchesPerYear(dataSet).then(function(data){
+        try {
+            return data;
 
-//         } catch(e){
-//         }
-// 	})
-// }
+        } catch(e){
+        }
+	})
+}
 
 let firstObject = (function(){
 	let dataSet = path.resolve("matches.csv");

@@ -3,6 +3,7 @@ const csv = require("fast-csv");
 function getTopBatsmen(deliveriesFile, matchIDArray){
 	return new Promise(function(resolve, reject){
 		let topScorers = {};
+		let topTen = {};
 		csv.fromPath(deliveriesFile)
 		.on("data", function(delivery){
 			let matchID = parseInt(delivery[0]);
@@ -18,7 +19,14 @@ function getTopBatsmen(deliveriesFile, matchIDArray){
 			}
 		})
 		.on("end", function(){
-			resolve(topScorers);
+			let runsSorted;
+	        runsSorted = Object.keys(topScorers).sort(function(a, b){return topScorers[b]-topScorers[a]});
+		    runsSorted.map(function(key, index){
+	        if(index > 9){return true;}
+	        	topTen[key] = topScorers[key];
+	      	})
+
+			resolve(topTen);
 		})
 	})
 }
